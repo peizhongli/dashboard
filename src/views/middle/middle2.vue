@@ -48,7 +48,6 @@ export default {
   .des-wrap {
     margin-top: 4px;
     justify-content: flex-start;
-    align-items: center;
     .icon {
       width: 60px;
       height: 60px;

@@ -1,25 +1,44 @@
-
-
-body, dl, dt, dd, ul, ol, li, pre, form, fieldset, input, p, blockquote, th, td {
-    margin:0;
-    padding:0;
+body,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+pre,
+form,
+fieldset,
+input,
+p,
+blockquote,
+th,
+td {
+    margin: 0;
+    padding: 0;
 }
+
 .title {
     font-size: 36px;
     color: #fff;
     text-align: center;
 }
+
 .flex {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+
 }
+
 .card {
     width: 100%;
-    background-color:rgba(53,61,85,.39);
+    background-color: rgba(53, 61, 85, .39);
     padding-top: 30px;
-    margin-bottom: 40px;;
+    margin-bottom: 40px;
+    ;
     box-sizing: border-box;
 }
+
 .corner {
     background: linear-gradient(#194a7d, #194a7d) left top,
         linear-gradient(#194a7d, #194a7d) left top,
@@ -34,6 +53,7 @@ body, dl, dt, dd, ul, ol, li, pre, form, fieldset, input, p, blockquote, th, td 
     background-size: 2px 16px, 16px 2px; // 指定边框像素
 
 }
+
 .icon {
     display: block;
     border-radius: 50%;
