@@ -1,0 +1,42 @@
+
+
+body, dl, dt, dd, ul, ol, li, pre, form, fieldset, input, p, blockquote, th, td {
+    margin:0;
+    padding:0;
+}
+.title {
+    font-size: 36px;
+    color: #fff;
+    text-align: center;
+}
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
+.card {
+    width: 100%;
+    background-color:rgba(53,61,85,.39);
+    padding-top: 30px;
+    margin-bottom: 40px;;
+    box-sizing: border-box;
+}
+.corner {
+    background: linear-gradient(#194a7d, #194a7d) left top,
+        linear-gradient(#194a7d, #194a7d) left top,
+        linear-gradient(#194a7d, #194a7d) right top,
+        linear-gradient(#194a7d, #194a7d) right top,
+        linear-gradient(#194a7d, #194a7d) left bottom,
+        linear-gradient(#194a7d, #194a7d) left bottom,
+        linear-gradient(#194a7d, #194a7d) right bottom,
+        linear-gradient(#194a7d, #194a7d) right bottom;
+    background-repeat: no-repeat;
+    background-color: #20315e;
+    background-size: 2px 16px, 16px 2px; // 指定边框像素
+
+}
+.icon {
+    display: block;
+    border-radius: 50%;
+    background: no-repeat center center;
+    background-color: #1890ff;
+}
