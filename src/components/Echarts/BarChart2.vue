@@ -65,7 +65,7 @@ export default {
           type: "plain",
           orient: "horizontal",
           icon: "rect",
-          top: 22,
+          top: 0,
           itemWidth: 10,
           itemHeight: 10,
           textStyle: {

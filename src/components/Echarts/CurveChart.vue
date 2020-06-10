@@ -11,6 +11,7 @@ export default {
       const myChart = echarts.init(this.$refs.main);
       // 绘制图表
       myChart.setOption({
+        color:['#F6F600','#809DFF'],
         title: {
           text: "时段服务明细",
           textStyle: {
@@ -19,14 +20,17 @@ export default {
           }
         },
         legend: {
-          data: ["时段服务量", "放弃率"],
+          data: ["时段服务量","时段预测服务量", "放弃率"],
           right: 0,
           textStyle: {
             color: "#fff",
             fontSize: 14,
             padding: [0, 0, 0, 20]
           },
-          itemGap: 60
+          itemGap: 60,
+          icon: 'rect',
+          itemWidth: 60,
+          itemHeight: 3,
         },
         xAxis: {
           boundaryGap: false,
@@ -124,7 +128,7 @@ export default {
         ],
         series: [
           {
-            name: "在线数",
+            name: "时段服务量",
             type: "line",
             smooth: true,
             symbol: "circle",
@@ -153,7 +157,7 @@ export default {
             ]
           },
           {
-            name: "在线数",
+            name: "时段预测服务量",
             type: "line",
             showSymbol: false,
             smooth: true, //关键点，为true是不支持虚线，实线就用true

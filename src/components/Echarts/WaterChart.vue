@@ -5,9 +5,9 @@
 <script>
 let echarts = require("echarts"); // 引入 ECharts 主模块
 import "echarts-liquidfill/src/liquidFill.js"; // 引入 水球图
-let value = null
-let color = null
-let label = null
+let value = null;
+let color = null;
+let label = null;
 export default {
   props: {
     value: Number,
@@ -19,19 +19,49 @@ export default {
       // 绘制图表
       myChart.setOption({
         tooltip: {
-            show: true
+          show: true
         },
         series: [
           {
             type: "liquidFill",
             radius: "98%",
+            amplitude: "4%",
+            waveLength: "80%",
             center: ["50%", "50%"],
-            data: [value, value, value],
+            color: [
+              {
+                type: "linear",
+                x: 0,
+                y: 0,
+                x2: 0,
+                y2: 1,
+                colorStops: [
+                  {
+                    offset: 0,
+                    color: "#5DB1FF"
+                  },
+                  {
+                    offset: 1,
+                    color: "#007DF1"
+                  }
+                ],
+                globalCoord: false
+              }
+            ],
+            data: [
+              value,
+              {
+                value,
+                itemStyle: {
+                  opacity: 0.5
+                }
+              }
+            ],
             backgroundStyle: {
               color: "#20315e"
             },
             tooltip: {
-                show: false
+              show: false
             },
             outline: {
               itemStyle: {
@@ -41,14 +71,11 @@ export default {
               }
             },
             label: {
-              normal: {
-                textStyle: {
-                  fontSize: 60,
-                  color: color
-                },
-                formatter: function() {
-                    return label;
-                },
+              insideColor: color,
+              color: color,
+              fontSize: 60,
+              formatter: function() {
+                return label;
               }
             }
           }
@@ -61,9 +88,9 @@ export default {
     }
   },
   mounted() {
-    value = (this.value / 500).toFixed(2)
-    label = this.value
-    color = this.type == 'high'? '#23E3F4':'#FFDF1E'
+    value = (this.value / 500).toFixed(2);
+    label = this.value;
+    color = this.type == "high" ? "#23E3F4" : "#FFDF1E";
     this.init();
   }
 };

@@ -13,15 +13,15 @@ export default {
       myChart.setOption({
         legend: {
           type: "plain",
-          orient: "vertical",
+          orient: "horizontal",
           right: "0",
-          bottom: "0",
+          top: "0",
           icon: "rect",
           itemWidth: 10,
           itemHeight: 10,
           textStyle: {
             color: "#fff",
-            fontSize: 18
+            fontSize: 16
           },
           data: ["电商", "微博", "微信",]
         },
@@ -29,7 +29,7 @@ export default {
           {
             name: "访问来源",
             type: "pie",
-            radius: [90, 125],
+            radius: [70, 100],
             legendHoverLink: false,
             position: 'outside',
             margin: '20%',
@@ -147,7 +147,7 @@ export default {
             type: "pie",
             selectedMode: "single",
             hoverAnimation: false,
-            radius: [0, 71],
+            radius: [0, 51],
             labelLine: {
               normal: {
                 show: false

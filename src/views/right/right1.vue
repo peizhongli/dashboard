@@ -9,27 +9,40 @@
       <div class="flex count-wrap">
         <p class="corner">
           <span>999</span>
-          <span>业务服务量</span>
+          <span>
+            <img src="../../assets/img/service.png" alt />
+            业务服务量
+          </span>
         </p>
         <p class="corner">
           <span>999</span>
-          <span>业务服务量</span>
+          <span>
+            <img src="../../assets/img/abandonment.png" alt />实时放弃率
+          </span>
         </p>
         <p class="corner">
           <span>999</span>
-          <span>业务服务量</span>
+          <span>
+            <img src="../../assets/img/queue.png" alt />排队量
+          </span>
         </p>
         <p class="corner">
           <span>999</span>
-          <span>业务服务量</span>
+          <span>
+            <img src="../../assets/img/queue_time.png" alt />平均排队时长
+          </span>
         </p>
         <p class="corner">
           <span>999</span>
-          <span>业务服务量</span>
+          <span>
+            <img src="../../assets/img/talk_time.png" alt />AHT
+          </span>
         </p>
         <p class="corner">
           <span>999</span>
-          <span>业务服务量</span>
+          <span>
+            <img src="../../assets/img/angry.png" alt />当前愤怒会话
+          </span>
         </p>
       </div>
     </section>
@@ -86,6 +99,12 @@ $text-blue: #00ecff;
       width: 233px;
       height: 90px;
       margin-bottom: 30px;
+      box-sizing: border-box;
+      padding-top: 5px;
+      img {
+            width: 16px;
+            margin-right: 10px;
+          }
       span {
         display: block;
         &:first-child {
@@ -94,7 +113,15 @@ $text-blue: #00ecff;
         &:last-child {
           font-size: 16px;
           color: #fff;
+          display: flex;
+          justify-content: center;
+          align-items: center;
         }
+      }
+      &:nth-child(4) {
+          img {
+            width: 13px;
+          }
       }
     }
   }

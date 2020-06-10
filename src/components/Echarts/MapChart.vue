@@ -112,7 +112,7 @@ export default {
             },
             rippleEffect: {
               period: 3,
-              scale: 2.5,
+              scale: 5,
               brushType: "fill"
             },
             itemStyle: {
