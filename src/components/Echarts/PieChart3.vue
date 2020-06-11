@@ -1,6 +1,6 @@
 <template>
-<!-- 饼形图 -->
-    <div ref="main" style="width:55%;height:330px;"></div>
+  <!-- 饼形图 -->
+  <div ref="main" style="width:55%;height:330px;"></div>
 </template>
 <script>
 let echarts = require("echarts");
@@ -23,7 +23,7 @@ export default {
             color: "#fff",
             fontSize: 16
           },
-          data: ["电商", "微博", "微信",]
+          data: ["电商", "微博", "微信"]
         },
         series: [
           {
@@ -31,8 +31,8 @@ export default {
             type: "pie",
             radius: [70, 100],
             legendHoverLink: false,
-            position: 'outside',
-            margin: '20%',
+            position: "outside",
+            margin: "20%",
             label: {
               formatter: `{b|{b}}占比: {d|{d}%}`,
               fontSize: 18,
@@ -40,14 +40,14 @@ export default {
               rich: {
                 d: {
                   color: "#00ECFF",
-                  fontSize: 18,
+                  fontSize: 18
                 }
               }
             },
             labelLine: {
               lineStyle: {
                 color: "#00ECFF"
-              },
+              }
             },
             emphasis: {
               label: {
@@ -58,38 +58,14 @@ export default {
                 fontSize: 20,
                 rich: {
                   d: {
-                    color: "#00ECFF",
+                    color: "#00ECFF"
                   }
                 }
               }
             },
             data: [
               {
-                value: 100,
-                name: "微博",
-                itemStyle: {
-                  color: {
-                    type: "linear",
-                    x: 0,
-                    y: 0,
-                    x2: 0,
-                    y2: 1,
-                    colorStops: [
-                      {
-                        offset: 0,
-                        color: "#56D09D" // 0% 处的颜色
-                      },
-                      {
-                        offset: 1,
-                        color: "#64FC91" // 100% 处的颜色
-                      }
-                    ],
-                    global: false // 缺省为 false
-                  }
-                }
-              },
-              {
-                value: 300,
+                value: 140,
                 name: "微信",
                 itemStyle: {
                   color: {
@@ -117,7 +93,32 @@ export default {
                 }
               },
               {
-                value: 400,
+                value: 350,
+                name: "微博",
+                itemStyle: {
+                  color: {
+                    type: "linear",
+                    x: 0,
+                    y: 0,
+                    x2: 0,
+                    y2: 1,
+                    colorStops: [
+                      {
+                        offset: 0,
+                        color: "#56D09D" // 0% 处的颜色
+                      },
+                      {
+                        offset: 1,
+                        color: "#64FC91" // 100% 处的颜色
+                      }
+                    ],
+                    global: false // 缺省为 false
+                  }
+                }
+              },
+
+              {
+                value: 510,
                 name: "电商",
                 itemStyle: {
                   color: {
@@ -139,7 +140,7 @@ export default {
                     global: false // 缺省为 false
                   }
                 }
-              },
+              }
             ]
           },
           {
@@ -167,7 +168,7 @@ export default {
     }
   },
   mounted() {
-      this.init()
+    this.init();
   }
 };
 </script>

@@ -11,6 +11,7 @@ export default {
       const myChart = echarts.init(this.$refs.main);
       // 绘制图表
       myChart.setOption({
+        color: ["#00ECFF","#64FC91","#EDFF13","#F0A137","#2B57C1",],
         title: {
           text: "累计销售商品",
           textStyle: {
@@ -23,7 +24,7 @@ export default {
         legend: {
           type: "plain",
           orient: "vertical",
-          right: 20,
+          right: 0,
           bottom: "0",
           icon: "rect",
           itemWidth: 12,
@@ -32,13 +33,14 @@ export default {
             color: "#fff",
             fontSize: 18
           },
-          data: ["产品1", "产品2", "产品3", "产品4", "产品5"]
+          data: ["整机延保", "专家上门服务", "PC故障检修", "即刻达", "重装系统服务"]
         },
         series: [
           {
             name: "访问来源",
             type: "pie",
             top: 90,
+            left: -40,
             radius: [79, 125],
             startAngle: -90,
             legendHoverLink: false,
@@ -72,38 +74,23 @@ export default {
             data: [
               {
                 value: 400,
-                name: "产品1",
-                itemStyle: {
-                  color: "#00ECFF"
-                }
+                name: "整机延保",
               },
               {
                 value: 100,
-                name: "产品2",
-                itemStyle: {
-                  color: "#64FC91"
-                }
+                name: "专家上门服务",
               },
               {
                 value: 100,
-                name: "产品3",
-                itemStyle: {
-                  color: "#EDFF13"
-                }
+                name: "PC故障检修",
               },
               {
                 value: 100,
-                name: "产品4",
-                itemStyle: {
-                  color: "#F0A137"
-                }
+                name: "即刻达",
               },
               {
                 value: 800,
-                name: "产品5",
-                itemStyle: {
-                  color: "#2B57C1"
-                }
+                name: "重装系统服务",
               }
             ]
           },
@@ -111,6 +98,7 @@ export default {
             name: "图例背景",
             type: "pie",
             top: 90,
+            left: -40,
             selectedMode: "single",
             hoverAnimation: false,
             radius: [0, 50],

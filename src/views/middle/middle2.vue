@@ -15,7 +15,11 @@
     </div>
     <section class="flex">
       <div v-for="(i,index) in data" :key="index" class="item-wrap">
-        <warterChart :value="i.value" :type="i.type" />
+        <warterChart
+          :value="i.value"
+          :type="i.type"
+          :total="$parent.middle1.online + $parent.middle1.scene"
+        />
         <p class="des-wrap flex">
           <span class="icon"></span>
           <span class="des">{{i.des}}</span>
@@ -38,7 +42,7 @@ export default {
 <style lang="scss" scoped>
 .card {
   position: relative;
-  padding: 48px 0 70px;
+  padding: 41px 0 70px;
   .title {
     margin-bottom: 100px;
   }

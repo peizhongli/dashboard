@@ -1,20 +1,29 @@
 <template>
   <!-- 水球图 -->
-  <div ref="main" style="width:256px;height:257px;"></div>
+  <div class="wrap">
+      <div ref="main" style="width:256px;height:257px;"></div>
+      <p class="number" :style="'color:'+ color">{{parseInt(value*total)}}</p>
+  </div>
 </template>
 <script>
 let echarts = require("echarts"); // 引入 ECharts 主模块
 import "echarts-liquidfill/src/liquidFill.js"; // 引入 水球图
-let value = null;
-let color = null;
-let label = null;
+// let value = null;
+// let label = null;
 export default {
   props: {
     value: Number,
-    type: String
+    type: String,
+    total: Number
+  },
+  data() {
+      return {
+          color: ''
+      }
   },
   methods: {
     init() {
+        let that = this
       const myChart = echarts.init(this.$refs.main);
       // 绘制图表
       myChart.setOption({
@@ -49,9 +58,9 @@ export default {
               }
             ],
             data: [
-              value,
+              that.value,
               {
-                value,
+                value: that.value,
                 itemStyle: {
                   opacity: 0.5
                 }
@@ -66,17 +75,12 @@ export default {
             outline: {
               itemStyle: {
                 borderWidth: 5,
-                borderColor: color,
+                borderColor: that.color,
                 borderType: "solid"
               }
             },
             label: {
-              insideColor: color,
-              color: color,
-              fontSize: 60,
-              formatter: function() {
-                return label;
-              }
+              show: false,
             }
           }
         ]
@@ -88,10 +92,24 @@ export default {
     }
   },
   mounted() {
-    value = (this.value / 500).toFixed(2);
-    label = this.value;
-    color = this.type == "high" ? "#23E3F4" : "#FFDF1E";
+    // value = this.value;
+    // console.log(this.total)
+    // label = parseInt(this.value * this.total);
+    this.color = this.type == "high" ? "#23E3F4" : "#FFDF1E";
     this.init();
   }
 };
 </script>
+<style lang="scss" scoped>
+.wrap {
+    position: relative;
+}
+.number {
+    font-size: 60px;
+    position: absolute;
+    top: 88px;
+    width: 100%;
+    text-align: center;
+}
+    
+</style>

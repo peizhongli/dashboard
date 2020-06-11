@@ -5,14 +5,25 @@
       <div class="flex">
         <span class="icon"></span>
         <p>
-          <span class="service-count">{{data.online}}</span>
+          <!-- <span class="service-count">{{data.online}}</span> -->
+          <numberWrap
+            class="service-count"
+            :number="data.online"
+            :figures="data.online.toString().length"
+          />
+
           <span class="service-des">今日线上服务量</span>
         </p>
       </div>
       <div class="flex">
         <span class="icon"></span>
         <p>
-          <span class="service-count">{{data.scene}}</span>
+          <!-- <span class="service-count">{{data.scene}}</span> -->
+          <numberWrap
+            class="service-count"
+            :number="data.scene"
+            :figures="data.scene.toString().length"
+          />
           <span class="service-des">今日现场服务量</span>
         </p>
       </div>
@@ -32,13 +43,16 @@
 <script>
 import mapChart from "../../components/Echarts/MapChart";
 import progressChart from "../../components/Echarts/ProgressChart";
+import numberWrap from "../../components/numberWrap";
+
 export default {
   props: {
     data: Object
   },
   components: {
     mapChart,
-    progressChart
+    progressChart,
+    numberWrap
   }
 };
 </script>
@@ -81,13 +95,20 @@ $text-blue: #00ecff;
       display: block;
     }
     .service-count {
-      font-size: 96px;
       color: #fff;
       font-weight: bold;
+      font-size: 96px;
+      /deep/ .box-item {
+        font-size: 96px;
+        width: 58px;
+        background: none;
+        height: 110px;
+      }
     }
     .service-des {
       font-size: 36px;
       color: #b0b4bc;
+      margin-top: -15px;
     }
   }
   .rate-wrap {
@@ -112,7 +133,7 @@ $text-blue: #00ecff;
     }
     .flex {
       padding: 0 30px;
-      margin-bottom: 20px;
+      margin-bottom: 13px;
       justify-content: space-between;
       font-size: 18px;
     }

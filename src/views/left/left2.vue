@@ -33,13 +33,13 @@ export default {
 <style lang="scss" scoped>
 $text-blue: #00ECFF;
     .card {
-        padding: 30px 50px 40px;
+        padding: 26px 50px 40px;
         text-align: center;
         color: $text-blue;
         .name {
             font-size: 24px;
             line-height: 1;
-            margin: 24px 0 15px;
+            margin: 10px 0 15px;
         }
         .platform-wrap {
             width: 180px;

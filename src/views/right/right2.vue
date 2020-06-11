@@ -4,11 +4,11 @@
     <div class="flex money">
       <div>
         <p>今日销售额</p>
-        <p class="corner">¥ 54,300</p>
+        <p class="corner">¥ 85,300</p>
       </div>
       <div>
         <p>累计销售数据</p>
-        <p class="corner">¥ 4000万</p>
+        <p class="corner">¥ 4750万</p>
       </div>
     </div>
     <section class="flex">
@@ -33,12 +33,12 @@ export default {
 <style lang="scss" scoped>
 $text-blue: #00ecff;
 .card {
-  padding: 30px 25px 40px;
+  padding: 26px 25px 40px;
   text-align: center;
   color: $text-blue;
   position: relative;
   .title {
-      margin-bottom: 16px;
+      margin-bottom: 20px;
   }
   .money {
       position: absolute;

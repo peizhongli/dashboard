@@ -17,7 +17,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .card {
-    padding: 45px 48px 51px 50px;
+    padding: 40px 48px 47px 50px;
     .title {
         margin-bottom: 50px;
     }

@@ -13,7 +13,7 @@
         <middle2 :data="middle2" />
       </section>
       <section class>
-        <right1 :data="right1" />
+        <right1 :data="middle1.online+middle1.scene" />
         <right2 :data="right2" />
         <right3 :data="right3" />
       </section>
@@ -33,7 +33,7 @@ import right2 from "./right/right2";
 import right3 from "./right/right3";
 
 function getRandomNumberByRange(start, end) {
-    return Math.floor(Math.random() * (end - start) + start)
+  return Math.floor(Math.random() * (end - start) + start);
 }
 
 export default {
@@ -54,15 +54,20 @@ export default {
       left1: [
         {
           title: "业务量",
-          number: [3, 5, 6, 2, 8]
+          number: 32447
         },
         {
           title: "用户数",
-          number: [3, 5, 6, 2, 8]
+          number: 33848
         }
       ],
       left2: {
         platform: [
+          {
+            title: "微信",
+            solved: 22.1,
+            satisfaction: 27.3
+          },
           {
             title: "桌面网站",
             solved: 22.1,
@@ -70,11 +75,6 @@ export default {
           },
           {
             title: "移动网站",
-            solved: 22.1,
-            satisfaction: 27.3
-          },
-          {
-            title: "微信小程序",
             solved: 22.1,
             satisfaction: 27.3
           }
@@ -105,7 +105,7 @@ export default {
         { name: "键盘", value: 789 }
       ],
       middle1: {
-        online: 334,
+        online: 1654,
         scene: 567,
         mapList: [
           {
@@ -186,11 +186,11 @@ export default {
         ]
       },
       middle2: [
-        { des: "线上服务", value: 218, type: "high" },
-        { des: "人员准备", value: 234, type: "middle" },
-        { des: "备件准备", value: 422, type: "high" },
-        { des: "上门服务", value: 235, type: "high" },
-        { des: "未修复长尾", value: 500, type: "high" }
+        { des: "线上服务", value: 0.6, type: "high" },
+        { des: "人员准备", value: 0.8, type: "middle" },
+        { des: "备件准备", value: 0.12, type: "high" },
+        { des: "上门服务", value: 0.15, type: "high" },
+        { des: "未修复长尾", value: 0.5, type: "high" }
       ],
       right1: {},
       right2: {},
@@ -198,26 +198,36 @@ export default {
     };
   },
   methods: {
-    roll(total) {
-      if(this.middle1.online<total) {
-          this.middle1.online ++ 
-      }
-    },
-    start(total, step, runtime = 10000) {
-      let rolling = this.roll(total, step);
-      runtime = runtime >= 300 ? runtime : 1000;
-      if (this.middle1.online < total) {
-        for (let i = 0; i < total / step; i++) {
-          console.log(this.middle1.online, total);
-          setTimeout(rolling, (runtime / total) * i * step);
+    roll(total, name) {
+      let time = getRandomNumberByRange(1, 3) * 300;
+    //   console.log(time, "后roll", name, this.middle1[name], total);
+      window.setTimeout(() => {
+        this.middle1[name]++;
+        if (this.middle1[name] < total) {
+          this.roll(total, name);
+        } else {
+          this.setTimer(name);
         }
+      }, time);
+    },
+    setTimer(name) {
+      let addCount = 0;
+      if (name == "online") {
+        addCount = getRandomNumberByRange(3, 9);
+      } else {
+        addCount = getRandomNumberByRange(1, 3);
       }
+      let time = getRandomNumberByRange(1, 5) * 1000;
+    //   console.log("新增", name, addCount);
+    //   console.log(time, "后");
+      window.setTimeout(() => {
+        this.roll(this.middle1[name] + addCount, name);
+      }, time);
     }
   },
   mounted() {
-    let addCount = getRandomNumberByRange(1, 20)
-    console.log(addCount)
-
+    this.setTimer("online");
+    this.setTimer("scene");
   }
 };
 </script>

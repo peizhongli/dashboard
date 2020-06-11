@@ -33,11 +33,11 @@ export default {
 <style lang="scss" scoped>
 $text-blue: #00ecff;
 .card {
-  padding: 30px 0 40px 10px;
+  padding: 26px 0 35px;
   text-align: center;
   color: $text-blue;
   .title {
-      margin-bottom: 12px;
+      margin-bottom: 15px;
   }
 }
 </style>

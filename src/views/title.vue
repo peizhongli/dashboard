@@ -6,12 +6,13 @@
       <span>联想魔方服务数据总览</span>
     </section>
     <p class="time flex">
-        <img src="../assets/img/clock.png" alt="">
-        <span>{{date}} | {{time}}</span>
+      <img src="../assets/img/clock.png" alt />
+      <span>{{date}} | {{time}}</span>
     </p>
   </section>
 </template>
 <script>
+
 const now = new Date();
 export default {
   data() {
@@ -23,10 +24,13 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.flex {
+  align-items: center;
+}
 .wrap {
   padding: 0 60px;
-  align-items: center;
-  &>img {
+
+  & > img {
     width: 400px;
   }
   .time {
@@ -35,7 +39,6 @@ export default {
     padding-left: 14px;
     box-sizing: border-box;
     justify-content: flex-start;
-    align-items: center;
     background: linear-gradient(
       198deg,
       rgba(13, 12, 42, 1) 0%,
@@ -45,8 +48,8 @@ export default {
     font-size: 24px;
     color: #fff;
     img {
-        width: 38px;
-        margin-right: 20px;
+      width: 38px;
+      margin-right: 20px;
     }
   }
 }
@@ -58,7 +61,7 @@ export default {
   height: 155px;
   margin: 0 auto;
   font-size: 75px;
-  color: #0087ec;
+  color: #fff;
   background: url(../assets/img/title_bg.png) no-repeat;
   background-size: 100% 100%;
   img {

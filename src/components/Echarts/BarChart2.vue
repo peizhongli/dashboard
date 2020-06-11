@@ -11,6 +11,7 @@ export default {
       const myChart = echarts.init(this.$refs.main);
       // 绘制图表
       myChart.setOption({
+        color: ["#00ECFF", "#64FC91", "#F0A137"],
         xAxis: {
           axisTick: {
             show: false
@@ -80,9 +81,6 @@ export default {
             type: "bar",
             stack: "1",
             barWidth: 15,
-            itemStyle: {
-              color: "#00ECFF"
-            },
             data: [200, 150, 240, 330, 200, 200, 200]
           },
           {
@@ -90,9 +88,6 @@ export default {
             type: "bar",
             stack: "1",
             barWidth: 15,
-            itemStyle: {
-              color: "#64FC91"
-            },
             data: [200, 150, 240, 330, 200, 200, 200]
           },
           {
@@ -100,9 +95,6 @@ export default {
             type: "bar",
             stack: "1",
             barWidth: 15,
-            itemStyle: {
-              color: "#F0A137"
-            },
             data: [200, 150, 240, 330, 200, 200, 200]
           }
         ]

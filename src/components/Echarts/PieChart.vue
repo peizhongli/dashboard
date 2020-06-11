@@ -1,6 +1,6 @@
 <template>
   <!-- 饼形图 -->
-  <div ref="main" style="width:100%;height:330px;"></div>
+  <div ref="main" style="width:100%;height:310px;"></div>
 </template>
 <script>
 let echarts = require("echarts");
@@ -14,8 +14,7 @@ export default {
         legend: {
           type: "plain",
           orient: "vertical",
-          x: "center",
-          y: "center",
+          top: 100,
           icon: "rect",
           itemWidth: 10,
           itemHeight: 10,
@@ -23,16 +22,17 @@ export default {
             color: "#fff",
             fontSize: 18
           },
-          data: ["桌面网站", "移动网站", "微信小程序"]
+          data: ["桌面网站", "移动网站", "微信"]
         },
         series: [
           {
             name: "访问来源",
             type: "pie",
+            top: -30,
             radius: [84, 109],
             legendHoverLink: false,
             label: {
-              alignTo: "edge",
+              alignTo: "labelLine",
               formatter: `{b|{b}}\n占比: {d|{d}%}`,
               fontSize: 18,
               color: "#fff",
@@ -41,7 +41,8 @@ export default {
                 b: {
                   color: "#fff",
                   lineHeight: 26,
-                  fontSize: 18
+                  fontSize: 18,
+                  align: 'center'
                 },
                 d: {
                   color: "#00ECFF",
@@ -76,7 +77,7 @@ export default {
             },
             data: [
               {
-                value: 100,
+                value: 220,
                 name: "移动网站",
                 itemStyle: {
                   color: {
@@ -100,8 +101,8 @@ export default {
                 }
               },
               {
-                value: 300,
-                name: "微信小程序",
+                value: 460,
+                name: "微信",
                 itemStyle: {
                   color: {
                     type: "linear",
@@ -128,7 +129,7 @@ export default {
                 }
               },
               {
-                value: 100,
+                value: 220,
                 name: "桌面网站",
                 itemStyle: {
                   color: {
@@ -156,6 +157,7 @@ export default {
           {
             name: "图例背景",
             type: "pie",
+            top: -30,
             selectedMode: "single",
             hoverAnimation: false,
             radius: [0, 71],

@@ -16,7 +16,4 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.card {
-    padding: 30px 0 0;
-}
 </style>
