@@ -7,10 +7,10 @@
         <span class="high"></span>高
       </p>
       <p>
-        <span class="middle"></span>高
+        <span class="middle"></span>中
       </p>
       <p>
-        <span class="low"></span>高
+        <span class="low"></span>低
       </p>
     </div>
     <section class="flex">
@@ -48,6 +48,7 @@ export default {
   .des-wrap {
     margin-top: 4px;
     justify-content: flex-start;
+    align-items: center;
     .icon {
       width: 60px;
       height: 60px;

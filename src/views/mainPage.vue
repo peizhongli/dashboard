@@ -32,6 +32,10 @@ import right1 from "./right/right1";
 import right2 from "./right/right2";
 import right3 from "./right/right3";
 
+function getRandomNumberByRange(start, end) {
+    return Math.floor(Math.random() * (end - start) + start)
+}
+
 export default {
   components: {
     titleWrap,
@@ -43,7 +47,7 @@ export default {
     middle2,
     right1,
     right2,
-    right3,
+    right3
   },
   data() {
     return {
@@ -101,7 +105,7 @@ export default {
         { name: "键盘", value: 789 }
       ],
       middle1: {
-        online: 678,
+        online: 334,
         scene: 567,
         mapList: [
           {
@@ -182,16 +186,38 @@ export default {
         ]
       },
       middle2: [
-          {des:'线上服务',value:218,type:'high'},
-          {des:'人员准备',value:234,type:'middle'},
-          {des:'备件准备',value:422,type:'high'},
-          {des:'上门服务',value:235,type:'high'},
-          {des:'未修复长尾',value:500,type:'high'},
+        { des: "线上服务", value: 218, type: "high" },
+        { des: "人员准备", value: 234, type: "middle" },
+        { des: "备件准备", value: 422, type: "high" },
+        { des: "上门服务", value: 235, type: "high" },
+        { des: "未修复长尾", value: 500, type: "high" }
       ],
       right1: {},
       right2: {},
-      right3: {},
+      right3: {}
     };
+  },
+  methods: {
+    roll(total) {
+      if(this.middle1.online<total) {
+          this.middle1.online ++ 
+      }
+    },
+    start(total, step, runtime = 10000) {
+      let rolling = this.roll(total, step);
+      runtime = runtime >= 300 ? runtime : 1000;
+      if (this.middle1.online < total) {
+        for (let i = 0; i < total / step; i++) {
+          console.log(this.middle1.online, total);
+          setTimeout(rolling, (runtime / total) * i * step);
+        }
+      }
+    }
+  },
+  mounted() {
+    let addCount = getRandomNumberByRange(1, 20)
+    console.log(addCount)
+
   }
 };
 </script>

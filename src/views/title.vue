@@ -25,6 +25,7 @@ export default {
 <style lang="scss" scoped>
 .wrap {
   padding: 0 60px;
+  align-items: center;
   &>img {
     width: 400px;
   }
@@ -34,6 +35,7 @@ export default {
     padding-left: 14px;
     box-sizing: border-box;
     justify-content: flex-start;
+    align-items: center;
     background: linear-gradient(
       198deg,
       rgba(13, 12, 42, 1) 0%,

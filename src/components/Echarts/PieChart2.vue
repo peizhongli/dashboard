@@ -18,7 +18,7 @@ export default {
             fontSize: 24,
           },
           left: 'center',
-          top: 30,
+          top: 15,
         },
         legend: {
           type: "plain",

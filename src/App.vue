@@ -13,8 +13,7 @@ export default {
     mainPage
   },
   mounted() {
-    let width = document.body.clientWidth
-    console.log(width)
+    // let width = document.body.clientWidth
   }
 }
 </script>
