@@ -3,6 +3,7 @@
     <img src="../assets/img/lenovo.png" alt class="lenovo" />
     <section class="title-wrap flex">
       <img src="../assets/img/logo.png" alt />
+    <div style='width:100px;height:100px;border-radius=50%;boder:1px solid #fff;border-right-color:transparent'></div>
       <span>联想魔方服务数据总览</span>
     </section>
     <p class="time flex">

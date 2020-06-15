@@ -19,6 +19,7 @@ const convertData = function(data) {
   }
   return res;
 };
+const areaData = ["北京", "四川", "广东", "上海", "深圳","浙江", "辽宁", "江苏", "陕西", "山东","湖北",'山西','吉林','黑龙江','内蒙古','河北','湖南','江西','贵州','云南','福建','安徽','广西','青海','甘肃','宁夏','河南','重庆','海南'];
 export default {
   props: {
     data: Array
@@ -46,6 +47,7 @@ export default {
           right: 0,
           top: 0,
           itemStyle: {
+              
             areaColor: "rgba(43,98,193,0.27)",
             borderWidth: 1,
             borderColor: "#00ECFF",
@@ -55,15 +57,9 @@ export default {
             shadowColor: "rgba(0,236,255, 0.27)",
             shadowBlur: 7
           },
-          regions: convertData(
-            this.data
-              .sort(function(a, b) {
-                return b.value - a.value;
-              })
-              .slice(0, 10)
-          ).map(i => {
+          regions: areaData.map(i => {
             return {
-              name: i.name,
+              name: i,
               itemStyle: {
                 areaColor: "rgba(43,87,193,0.7)"
               }
@@ -71,18 +67,6 @@ export default {
           })
         },
         series: [
-          {
-            name: "增加用户数",
-            type: "scatter",
-            coordinateSystem: "geo",
-            data: convertData(this.data),
-            symbolSize: 6,
-            itemStyle: {
-              normal: {
-                color: "#F6F600"
-              }
-            }
-          },
           {
             name: "Top5",
             type: "effectScatter",
@@ -100,7 +84,89 @@ export default {
             label: {
               normal: {
                 formatter: function(params) {
-                  return `${params.data.name}+${params.value[2]}`;
+                  return `+${params.value[2]}`;
+                },
+                position: "right",
+                show: true,
+                fontSize: 14
+              },
+              emphasis: {
+                show: true
+              }
+            },
+            rippleEffect: {
+              period: 3,
+              scale: 10,
+              brushType: "fill"
+            },
+            itemStyle: {
+              normal: {
+                color: "#F6F600",
+                shadowBlur: 10,
+                shadowColor: "#333"
+              }
+            },
+            zlevel: 1
+          },
+          {
+            name: "Top10",
+            type: "effectScatter",
+            coordinateSystem: "geo",
+            data: convertData(
+              this.data
+                .sort(function(a, b) {
+                  return b.value - a.value;
+                })
+                .slice(5, 8)
+            ),
+            symbolSize: 10,
+            showEffectOn: "render",
+            hoverAnimation: true,
+            label: {
+              normal: {
+                formatter: function(params) {
+                  return `${params.value[2]}`;
+                },
+                position: "right",
+                show: true,
+                fontSize: 14
+              },
+              emphasis: {
+                show: true
+              }
+            },
+            rippleEffect: {
+              period: 3,
+              scale: 7,
+              brushType: "fill"
+            },
+            itemStyle: {
+              normal: {
+                color: "#F6F600",
+                shadowBlur: 10,
+                shadowColor: "#333"
+              }
+            },
+            zlevel: 1
+          },
+          {
+            name: "Top15",
+            type: "effectScatter",
+            coordinateSystem: "geo",
+            data: convertData(
+              this.data
+                .sort(function(a, b) {
+                  return b.value - a.value;
+                })
+                .slice(8, 12)
+            ),
+            symbolSize: 10,
+            showEffectOn: "render",
+            hoverAnimation: true,
+            label: {
+              normal: {
+                formatter: function(params) {
+                  return `${params.value[2]}`;
                 },
                 position: "right",
                 show: true,
@@ -125,7 +191,7 @@ export default {
             zlevel: 1
           },
           {
-            name: "Top10",
+            name: "Top15",
             type: "effectScatter",
             coordinateSystem: "geo",
             data: convertData(
@@ -133,19 +199,19 @@ export default {
                 .sort(function(a, b) {
                   return b.value - a.value;
                 })
-                .slice(6, 10)
+                .slice(12, this.data.length+1)
             ),
-            symbolSize: 8,
+            symbolSize: 10,
             showEffectOn: "render",
             hoverAnimation: true,
             label: {
               normal: {
                 formatter: function(params) {
-                  return `+${params.value[2]}`;
+                  return `${params.value[2]}`;
                 },
                 position: "right",
                 show: true,
-                fontSize: 12
+                fontSize: 14
               },
               emphasis: {
                 show: true
@@ -153,7 +219,7 @@ export default {
             },
             rippleEffect: {
               period: 3,
-              scale: 2,
+              scale: 5,
               brushType: "fill"
             },
             itemStyle: {
@@ -164,19 +230,21 @@ export default {
               }
             },
             zlevel: 1
-          }
+          },
         ]
       });
     }
   },
   mounted() {
+    console.log(this.data)
+
     this.init();
   }
 };
 </script>
 <style lang="scss" scoped>
-    .main {
-        background: url(../../assets/img/map.png) no-repeat;
-        background-size: 100% auto;
-    }
+.main {
+  background: url(../../assets/img/map.png) no-repeat;
+  background-size: 100% auto;
+}
 </style>

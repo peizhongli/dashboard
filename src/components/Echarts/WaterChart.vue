@@ -92,11 +92,15 @@ export default {
     }
   },
   mounted() {
-    // value = this.value;
-    // console.log(this.total)
-    // label = parseInt(this.value * this.total);
+    
     this.color = this.type == "high" ? "#23E3F4" : "#FFDF1E";
     this.init();
+  },
+  watch: {
+      total(val) {
+          console.log(val,this.total,this.value)
+    console.log('res',parseInt(this.total*this.value))
+      }
   }
 };
 </script>

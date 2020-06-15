@@ -26,21 +26,23 @@ export default {
           numberItems[index].style.transform = `translate(-50%, 0)`;
         });
       } else {
-        let zeroArr = new Array(this.figures - numArr.length).fill(0);
-        numArr = [...zeroArr, ...numArr];
-        numArr.forEach((i, index) => {
-          numberItems[index].style.transform = `translate(-50%, -${i*10}%)`;
+        this.$nextTick(() => {
+          let zeroArr = new Array(this.figures - numArr.length).fill(0);
+          numArr = [...zeroArr, ...numArr];
+          numArr.forEach((i, index) => {
+            numberItems[index].style.transform = `translate(-50%, -${i * 10}%)`;
+          });
         });
       }
     }
   },
   mounted() {
-      this.setNumberTransform(this.number)
+    this.setNumberTransform(this.number);
   },
   watch: {
     number(val) {
-    //   console.log(val);
-      this.setNumberTransform(val)
+      //   console.log(val);
+      this.setNumberTransform(val);
     }
   }
 };
@@ -66,7 +68,7 @@ export default {
   left: 50%;
   letter-spacing: 10px;
   transition: transform 1s;
-  transform: translate(-50%,0);
+  transform: translate(-50%, 0);
   z-index: 3;
 }
 </style>

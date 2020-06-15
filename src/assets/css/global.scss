@@ -50,7 +50,19 @@ td {
     background-repeat: no-repeat;
     background-color: #20315e;
     background-size: 2px 16px, 16px 2px; // 指定边框像素
-
+}
+.corner2 {
+    background: linear-gradient(#0091FF, #0091FF) left top,
+        linear-gradient(#0091FF, #0091FF) left top,
+        linear-gradient(#0091FF, #0091FF) right top,
+        linear-gradient(#0091FF, #0091FF) right top,
+        linear-gradient(#0091FF, #0091FF) left bottom,
+        linear-gradient(#0091FF, #0091FF) left bottom,
+        linear-gradient(#0091FF, #0091FF) right bottom,
+        linear-gradient(#0091FF, #0091FF) right bottom;
+    background-repeat: no-repeat;
+    background-color: rgba(5,102,173,.34);
+    background-size: 2px 16px, 16px 2px; // 指定边框像素
 }
 
 .icon {

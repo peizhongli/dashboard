@@ -52,23 +52,23 @@ export default {
             },
             emphasis: {
               label: {
-                show: true,
-                formatter: `{b|{b}}{d|{d}%}`,
-                fontWeight: "bold",
-                fontSize: 20,
-                color: "#fff",
-                rich: {
-                  b: {
-                    color: "#fff",
-                    align: "center",
-                    lineHeight: 22,
-                    fontWeight: "bold"
-                  },
-                  d: {
-                    color: "#00ECFF",
-                    fontWeight: "bold"
-                  }
-                }
+                show: false,
+                // formatter: `{b|{b}}{d|{d}%}`,
+                // fontWeight: "bold",
+                // fontSize: 20,
+                // color: "#fff",
+                // rich: {
+                //   b: {
+                //     color: "#fff",
+                //     align: "center",
+                //     lineHeight: 22,
+                //     fontWeight: "bold"
+                //   },
+                //   d: {
+                //     color: "#00ECFF",
+                //     fontWeight: "bold"
+                //   }
+                // }
               }
             },
             data: [

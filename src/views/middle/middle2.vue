@@ -14,11 +14,11 @@
       </p>
     </div>
     <section class="flex">
-      <div v-for="(i,index) in data" :key="index" class="item-wrap">
+      <div v-for="(i,index) in data.list" :key="index" class="item-wrap">
         <warterChart
           :value="i.value"
           :type="i.type"
-          :total="$parent.middle1.online + $parent.middle1.scene"
+          :total="data.total"
         />
         <p class="des-wrap flex">
           <span class="icon"></span>
@@ -32,7 +32,7 @@
 import warterChart from "../../components/Echarts/WaterChart";
 export default {
   props: {
-    data: Array
+    data: Object
   },
   components: {
     warterChart

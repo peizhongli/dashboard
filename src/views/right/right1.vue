@@ -108,7 +108,7 @@ $text-blue: #00ecff;
       height: 90px;
       margin-bottom: 30px;
       box-sizing: border-box;
-      padding-top: 5px;
+    //   padding-top: 5px;
       img {
         width: 16px;
         margin-right: 10px;

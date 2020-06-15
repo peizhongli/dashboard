@@ -13,7 +13,7 @@
         <middle2 :data="middle2" />
       </section>
       <section class>
-        <right1 :data="middle1.online+middle1.scene" />
+        <right1 :data="middle2.total" />
         <right2 :data="right2" />
         <right3 :data="right3" />
       </section>
@@ -110,38 +110,38 @@ export default {
         mapList: [
           {
             name: "北京",
-            value: 1000
-          },
-          {
-            name: "天津",
-            value: 999
-          },
-          {
-            name: "河北",
-            value: 888
-          },
-          {
-            name: "山西",
-            value: 777
-          },
-          {
-            name: "内蒙古",
-            value: 666
-          },
-          {
-            name: "辽宁",
-            value: 200
-          },
-          {
-            name: "吉林",
-            value: 678
-          },
-          {
-            name: "黑龙江",
-            value: 666
+            value: 1113
           },
           {
             name: "上海",
+            value: 678
+          },
+          {
+            name: "广州",
+            value: 584
+          },
+          {
+            name: "深圳",
+            value: 420
+          },
+          {
+            name: "成都",
+            value: 492
+          },
+          {
+            name: "南京",
+            value: 200
+          },
+          {
+            name: "沈阳",
+            value: 342
+          },
+          {
+            name: "杭州",
+            value: 666
+          },
+          {
+            name: "西安",
             value: 200
           },
           {
@@ -149,34 +149,99 @@ export default {
             value: 200
           },
           {
-            name: "浙江",
-            value: 888
+            name: "武汉",
+            value: 333
           },
           {
-            name: "安徽",
+            name: "青岛",
             value: 200
+          },
+          {
+            name: "长春",
+            value: 232
+          },
+          
+          {
+            name: "西宁",
+            value: 13
+          },
+          {
+            name: "兰州",
+            value: 13
+          },
+          {
+            name: "昆明",
+            value: 52
+          },
+          {
+            name: "贵阳",
+            value: 32
+          },
+          {
+            name: "长沙",
+            value: 32
+          },
+          {
+            name: "南宁",
+            value: 43
+          },
+          {
+            name: "呼和浩特",
+            value: 37
+          },
+          {
+            name: "太原",
+            value: 86
+          },
+          {
+            name: "西安",
+            value: 39
+          },
+          {
+            name: "郑州",
+            value: 37
+          },
+          {
+            name: "南昌",
+            value: 68
+          },
+          {
+            name: "重庆",
+            value: 232
+          },
+          {
+            name: "哈尔滨",
+            value: 245
+          },
+          {
+            name: "厦门",
+            value: 189
+          },
+          {
+            name: "海口",
+            value: 48
           }
         ],
         cityList: [
           {
             name: "北京",
-            value: 1000
+            value: 1113
           },
           {
-            name: "天津",
-            value: 999
+            name: "上海",
+            value: 678
           },
           {
-            name: "河北",
-            value: 888
+            name: "广州",
+            value: 584
           },
           {
-            name: "山西",
-            value: 777
+            name: "深圳",
+            value: 420
           },
           {
-            name: "内蒙古",
-            value: 666
+            name: "成都",
+            value: 492
           }
         ],
         progress: [
@@ -185,13 +250,14 @@ export default {
           { title: "满意度", value: 92 }
         ]
       },
-      middle2: [
-        { des: "线上服务", value: 0.6, type: "high" },
-        { des: "人员准备", value: 0.8, type: "middle" },
+      middle2: {
+        list: [{ des: "线上服务", value: 0.6, type: "high" },
+        { des: "人员准备", value: 0.08, type: "middle" },
         { des: "备件准备", value: 0.12, type: "high" },
         { des: "上门服务", value: 0.15, type: "high" },
-        { des: "未修复长尾", value: 0.5, type: "high" }
-      ],
+        { des: "未修复长尾", value: 0.5, type: "high" }],
+        total: 2221
+      },
       right1: {},
       right2: {},
       right3: {}
@@ -200,7 +266,7 @@ export default {
   methods: {
     roll(total, name) {
       let time = getRandomNumberByRange(1, 3) * 300;
-    //   console.log(time, "后roll", name, this.middle1[name], total);
+      //   console.log(time, "后roll", name, this.middle1[name], total);
       window.setTimeout(() => {
         this.middle1[name]++;
         if (this.middle1[name] < total) {
@@ -218,16 +284,47 @@ export default {
         addCount = getRandomNumberByRange(1, 3);
       }
       let time = getRandomNumberByRange(1, 5) * 1000;
-    //   console.log("新增", name, addCount);
-    //   console.log(time, "后");
+      //   console.log("新增", name, addCount);
+      //   console.log(time, "后");
       window.setTimeout(() => {
         this.roll(this.middle1[name] + addCount, name);
       }, time);
+    },
+    setSocket() {
+      var url = "ws://10.120.115.71:8093";
+      //建立websocket连接
+      var io = new WebSocket(url);
+      io.onopen = function() {
+        console.log("连接成功");
+      };
+      //连接错误
+      io.onerror = function(e) {
+        console.log("连接错误", e);
+      };
+      //推送消息
+      io.onmessage = res => {
+        let data = JSON.parse(res.data);
+        console.log("收到数据", data);
+        this.middle1.online = data.online;
+        this.middle1.scene = data.scene;
+        this.left1[0].number = data.bv;
+        this.left1[1].number = data.uv;
+        console.log('total',data.online*1 + data.scene*1)
+        this.middle2.total = data.online*1 + data.scene*1
+      };
+      //关闭连接
+      io.onclose = () => {
+        this.setSocket();
+      };
     }
   },
   mounted() {
-    this.setTimer("online");
-    this.setTimer("scene");
+    // this.setTimer("online");
+    // this.setTimer("scene");
+    this.setSocket();
+  },
+  created() {
+    console.log("初始化了");
   }
 };
 </script>
