@@ -2,9 +2,9 @@
   <div class="wrap" :class="show?'start':''">
     <div class="top">
       <img src="../assets/img/lenovo.png" alt class="lenovo" />
-      <img src="../assets/img/cube_logo.png" alt class="cube" />
+      <img src="../assets/img/cube_logo.png" alt class="cube-logo" />
       <div class="title">
-        <p>AI如何协助人工提供最优服务</p>
+        <p>A.I.——服务智能化的内在驱动</p>
       </div>
       <div class="cube-all-wrap">
         <div class="cube-wrap1 cube-wrap cube"></div>
@@ -20,37 +20,41 @@
         <div class="left"></div>
         <div class="right"></div>
       </div>
-      <div class="content left-con con-left">
-        <img src="../assets/img/left_icon.png" alt />
-        <div class="corner2">A.I. For Custome</div>
+      <div class="content left-con">
+        <section class="con-left">
+          <img src="../assets/img/left_icon.png" alt />
+          <div class="corner2">A.I. 服务客户</div>
+        </section>
         <section>
-          <p>
+          <p class="con-left left2">
             <span>语义理解</span>
-            <span>采用bert,elmo等NLP模型实现模拟真人的答疑解惑,24h不间断服务</span>
+            <span>采用自然语言处理技术,自动理解用户问题,7x24小时不间断服务</span>
           </p>
-          <p>
+          <p class="con-left left3">
             <span>多轮对话</span>
-            <span>通过多轮交互形式,明确用户意图,自动完成“开单”、“预定”等任务</span>
+            <span style="letter-spacing:-1px;">通过多轮交互形式,明确用户意图,自动完成“开单”、“预定”等任务</span>
           </p>
-          <p>
+          <p class="con-left left4">
             <span>智能回访</span>
-            <span>语音机器人对用户进行服务回访,收集反馈,形成数据闭环,提升服务流程体验</span>
+            <span style="letter-spacing:-1px;">语音机器人对用户进行服务回访,收集反馈,形成数据闭环,提升服务流程体验</span>
           </p>
         </section>
       </div>
       <div class="content right-con con-right">
-        <img src="../assets/img/right_icon.png" alt />
-        <div class="corner2">A.I. For Agent</div>
+        <section class="con-left">
+          <img src="../assets/img/right_icon.png" alt />
+          <div class="corner2">A.I. For 服务坐席</div>
+        </section>
         <section>
-          <p>
+          <p class="con-left left2">
             <span>智能路由</span>
             <span>利用大数据算法识别用户,为每一位用户精准匹配坐席,提供个性化的客户服务体验</span>
           </p>
-          <p>
-            <span>智能决策</span>
+          <p class="con-left left3">
+            <span>智能解决</span>
             <span>自动识别用户问题,精准推荐解决方案,实时分析数据,助力服务资源调度决策、服务质检</span>
           </p>
-          <p>
+          <p class="con-left left4">
             <span>智能感知</span>
             <span>自研情绪识别引擎实时分析服务对话,帮助坐席了解用户情绪波动,降低客诉,把握销售商机</span>
           </p>
@@ -99,11 +103,11 @@
             <span>57%</span>
           </div>
           <div>
-            <span style="color:#32C5FF;">全局提率：</span>
+            <span style="color:#32C5FF;">全局提效：</span>
             <p>
               <span style="width:17%;background-color:#32C5FF;" class="progress"></span>
             </p>
-            <span>17%</span>
+            <span style="color:#32C5FF;">17%</span>
           </div>
         </div>
       </section>
@@ -139,19 +143,20 @@ export default {
       display: block;
       &.lenovo {
         width: 449px;
-        top: 39px;
+        top: 62px;
         left: 140px;
       }
-      &.cube {
-        width: 346px;
-        top: 28px;
+      &.cube-logo {
+        width: 336px;
+        top: 46px;
         right: 122px;
       }
     }
     .title {
       position: relative;
       height: 175px;
-      font-size: 110px;
+      font-size: 108px;
+      font-weight: 800;
       padding-top: 24px;
       box-sizing: border-box;
       line-height: 132px;
@@ -216,8 +221,8 @@ export default {
 
       .point {
         position: absolute;
-        width: 818px;
-        height: 818px;
+        width: 800px;
+        height: 800px;
         margin: auto;
         background: url(../assets/img/point.png) no-repeat center;
         background-size: 100% auto;
@@ -262,28 +267,35 @@ export default {
       display: flex;
       flex-direction: column;
       font-size: 56px;
-      line-height: 66px;
+      line-height: 100px;
       letter-spacing: 3px;
       font-weight: bold;
+      top: 376px;
       img {
         width: 155px;
         margin-bottom: 37px;
       }
       .corner2 {
-        width: 662px;
+        width: 720px;
         height: 86px;
         line-height: 86px;
+        font-size: 62px;
         text-align: center;
         margin-bottom: 100px;
       }
       p {
-        margin-bottom: 69px;
+        margin-bottom: 102px;
+        display: flex;
         span {
           display: block;
+          font-size: 85px;
           &:last-child {
+            width: 605px;
             font-size: 35px;
+            line-height: 56px;
             color: rgba(255, 255, 255, 0.59);
-            letter-spacing: -2px;
+            letter-spacing: 0;
+            text-align: justify;
           }
         }
       }
@@ -291,7 +303,16 @@ export default {
     .left-con {
       left: 140px;
       img {
-        margin-left: 118px;
+        margin-left: 283px;
+      }
+      p {
+        flex-direction: row-reverse;
+        span {
+          &:last-child {
+            margin-right: 42px;
+            text-align: right;
+          }
+        }
       }
     }
     .right-con {
@@ -299,10 +320,16 @@ export default {
       right: 124px;
       text-align: right;
       img {
-        margin-right: 118px;
+        margin-right: 283px;
       }
       p {
-        text-align: right;
+        span {
+          &:last-child {
+            width: 643px;
+            margin-left: 30px;
+            letter-spacing: -2px;
+          }
+        }
       }
     }
   }
@@ -328,6 +355,7 @@ export default {
         display: flex;
         align-items: center;
         font-size: 45px;
+        text-align: right;
         padding-bottom: 45px;
         font-weight: bold;
 
@@ -341,7 +369,7 @@ export default {
           position: relative;
           width: 1157px;
           height: 25px;
-          margin: 0 59px 0 29px;
+          margin: 0 24px 0 29px;
           background: rgba(34, 43, 94, 0.62);
           border-radius: 0px 100px 100px 0px;
           span {
@@ -367,7 +395,7 @@ export default {
     }
     .bottom-right {
       &::before {
-        left: 383px;
+        left: 384px;
       }
     }
   }
@@ -375,11 +403,11 @@ export default {
 
 .rotate {
   transform-origin: center;
-  animation: rotate 1.2s 0.8s linear infinite;
+  animation: rotate 6s 0.8s linear infinite;
 }
 .scale {
   transform-origin: center;
-  animation: scale 0.8s;
+  animation: scale 2s;
 }
 .start .cube {
   transform-origin: center;
@@ -396,13 +424,23 @@ export default {
   animation-fill-mode: forwards;
 }
 .start .con-left {
+  opacity: 0;
   transform-origin: center;
-  animation: moveLeftContent 2s;
+  animation: moveTopContent 1.2s;
   animation-fill-mode: forwards;
+}
+.start .con-left.left2 {
+  animation-delay: 0.4s;
+}
+.start .con-left.left3 {
+  animation-delay: .8s;
+}
+.start .con-left.left4 {
+  animation-delay: 1.2s;
 }
 .start .con-right {
   transform-origin: center;
-  animation: moveRightContent 2s;
+  animation: moveTopContent 2s;
   animation-fill-mode: forwards;
 }
 .start .progress {
@@ -426,9 +464,6 @@ export default {
   }
   60% {
     transform: scale(1);
-    background-image: url(../assets/img/cube3.jpg);
-  }
-  61% {
     background-image: url(../assets/img/cube2.jpg);
   }
   100% {
@@ -463,24 +498,24 @@ export default {
     transform: translateX(0) rotateY(180deg);
   }
 }
-@keyframes moveLeftContent {
+// @keyframes moveBottomContent {
+//   0% {
+//     opacity: 0;
+//     transform: translateY(-300px);
+//   }
+//   100% {
+//     opacity: 1;
+//     transform: translateY(0);
+//   }
+// }
+@keyframes moveTopContent {
   0% {
     opacity: 0;
-    transform: translateX(-300px);
+    transform: translateY(300px);
   }
   100% {
     opacity: 1;
-    transform: translateX(0);
-  }
-}
-@keyframes moveRightContent {
-  0% {
-    opacity: 0;
-    transform: translateX(300px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
   }
 }
 @keyframes progress {

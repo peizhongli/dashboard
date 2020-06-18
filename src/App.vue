@@ -47,6 +47,7 @@ body {
   height: 2160px;
   background-color: #0d0c2a;
   transform-origin: top left;
+  overflow: hidden;
 }
 
 @media only screen and (max-width: 1920px) {

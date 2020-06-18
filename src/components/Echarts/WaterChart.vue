@@ -2,7 +2,7 @@
   <!-- 水球图 -->
   <div class="wrap">
       <div ref="main" style="width:256px;height:257px;"></div>
-      <p class="number" :style="'color:'+ color">{{parseInt(value*total)}}</p>
+      <p class="number" style="color:#23E3F4">{{value}}</p>
   </div>
 </template>
 <script>
@@ -58,9 +58,9 @@ export default {
               }
             ],
             data: [
-              that.value,
+              that.value/that.total.toFixed(2),
               {
-                value: that.value,
+                value: that.value/that.total.toFixed(2),
                 itemStyle: {
                   opacity: 0.5
                 }
@@ -75,7 +75,7 @@ export default {
             outline: {
               itemStyle: {
                 borderWidth: 5,
-                borderColor: that.color,
+                borderColor: "#23E3F4",
                 borderType: "solid"
               }
             },
@@ -92,16 +92,9 @@ export default {
     }
   },
   mounted() {
-    
     this.color = this.type == "high" ? "#23E3F4" : "#FFDF1E";
     this.init();
   },
-  watch: {
-      total(val) {
-          console.log(val,this.total,this.value)
-    console.log('res',parseInt(this.total*this.value))
-      }
-  }
 };
 </script>
 <style lang="scss" scoped>

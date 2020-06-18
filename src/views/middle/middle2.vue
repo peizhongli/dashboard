@@ -15,11 +15,7 @@
     </div>
     <section class="flex">
       <div v-for="(i,index) in data.list" :key="index" class="item-wrap">
-        <warterChart
-          :value="i.value"
-          :type="i.type"
-          :total="data.total"
-        />
+        <warterChart :value="i.value" :type="i.type" :total="i.total" />
         <p class="des-wrap flex">
           <span class="icon"></span>
           <span class="des">{{i.des}}</span>

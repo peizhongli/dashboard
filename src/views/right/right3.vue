@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <p class="title">舆情倾听</p>
+    <p class="title">VOC</p>
     <section class="flex">
       <div class="left"></div>
       <div>

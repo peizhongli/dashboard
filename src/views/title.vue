@@ -18,7 +18,7 @@ const now = new Date();
 export default {
   data() {
     return {
-      date: `${now.getFullYear()}-${now.getMonth() - 1}-${now.getDate()}`,
+      date: `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`,
       time: `${now.getHours()}:${now.getMinutes()}`
     };
   }

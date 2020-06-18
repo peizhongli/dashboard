@@ -82,8 +82,10 @@ export default {
       let cos = Math.cos(angleX);
       let sin = Math.sin(angleX);
       this.tagList.forEach(i => {
-        i.y = i.y * cos - i.z * sin;
-        i.z = i.z * cos + i.y * sin;
+        let y1 = i.y * cos - i.z * sin;
+        let z1 = i.z * cos + i.y * sin;
+        i.y = y1;
+        i.z = z1;
       });
     },
     rotateY() {
@@ -91,8 +93,10 @@ export default {
       let cos = Math.cos(angleY);
       let sin = Math.sin(angleY);
       this.tagList.forEach(i => {
-        i.x = i.x * cos - i.z * sin;
-        i.z = i.z * cos + i.x * sin;
+        let x1 = i.x * cos - i.z * sin;
+        let z1 = i.z * cos + i.x * sin;
+        i.x = x1;
+        i.z = z1;
       });
     },
     animate() {

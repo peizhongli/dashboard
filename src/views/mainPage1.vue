@@ -13,7 +13,7 @@
         <middle2 :data="middle2" />
       </section>
       <section class>
-        <right1 :data="middle2.total" />
+        <right1 :data="middle1.online" />
         <right2 :data="right2" />
         <right3 :data="right3" />
       </section>
@@ -53,12 +53,12 @@ export default {
     return {
       left1: [
         {
-          title: "业务量",
-          number: 32447
+          title: "服务量",
+          number: 0
         },
         {
-          title: "用户数",
-          number: 33848
+          title: "UV",
+          number: 0
         }
       ],
       left2: {
@@ -105,8 +105,8 @@ export default {
         { name: "键盘", value: 789 }
       ],
       middle1: {
-        online: 1654,
-        scene: 567,
+        online: 0,
+        scene: 0,
         mapList: [
           {
             name: "北京",
@@ -160,7 +160,7 @@ export default {
             name: "长春",
             value: 232
           },
-          
+
           {
             name: "西宁",
             value: 13
@@ -237,26 +237,27 @@ export default {
           },
           {
             name: "深圳",
-            value: 420
+            value: 492
           },
           {
             name: "成都",
-            value: 492
+            value: 420
           }
         ],
         progress: [
           { title: "30秒接起率", value: 98 },
-          { title: "机器人转人工", value: 88 },
+          { title: "机器人转人工", value: 48 },
           { title: "满意度", value: 92 }
         ]
       },
       middle2: {
-        list: [{ des: "线上服务", value: 0.6, type: "high" },
-        { des: "人员准备", value: 0.08, type: "middle" },
-        { des: "备件准备", value: 0.12, type: "high" },
-        { des: "上门服务", value: 0.15, type: "high" },
-        { des: "未修复长尾", value: 0.5, type: "high" }],
-        total: 2221
+        list: [
+          { des: "线上服务", value: 240, type: "high", total: 400 },
+          { des: "人员准备", value: 698, type: "middle", total: 1000 },
+          { des: "备件准备", value: 326, type: "high", total: 1000 },
+          { des: "上门服务", value: 757, type: "high", total: 1000 },
+          { des: "未修复长尾", value: 122, type: "high", total: 1000 }
+        ]
       },
       right1: {},
       right2: {},
@@ -305,12 +306,14 @@ export default {
       io.onmessage = res => {
         let data = JSON.parse(res.data);
         console.log("收到数据", data);
+        if(data.online==0) {
+          location.reload()
+        }
         this.middle1.online = data.online;
         this.middle1.scene = data.scene;
         this.left1[0].number = data.bv;
         this.left1[1].number = data.uv;
-        console.log('total',data.online*1 + data.scene*1)
-        this.middle2.total = data.online*1 + data.scene*1
+        this.middle2.list[0].value = data.ol;
       };
       //关闭连接
       io.onclose = () => {
