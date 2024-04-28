@@ -1,4 +1,5 @@
-# dashboard
+## 请注意 这个库是比较旧的Vue2版本
+## 这里有Vue3+Typescript的版本可以选择：https://peizhongli.github.io/vue3-dashboard/
 
 ## Project setup
 ```
